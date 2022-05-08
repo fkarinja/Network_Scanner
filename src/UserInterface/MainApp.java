@@ -1,5 +1,7 @@
 package UserInterface;
 
+import InputParser.IPAddressWorks;
+
 import java.util.Scanner;
 
 public class MainApp {
@@ -9,9 +11,13 @@ public class MainApp {
     public static void main(String[] args) {
         //Main menu
         System.out.println("============================================================");
-        System.out.println("Please enter IP address or IP address range.");
-        System.out.println("IP address ie. => 192.168.1.1");
-        System.out.println("IP address range ie. => 192.168.1.0/32 => 192.168.1.1-255");
+//        System.out.println("IP address ie. => 192.168.1.1");
+//        System.out.println("IP address range ie. => 192.168.1.1-255");
+//        System.out.println("Please enter IP address or IP address range.");
+
+        //String address = sc.nextLine();
+        String address = "192.168.8.1-255";
+        IPAddressWorks.initialParser(address);
 
 
     }
