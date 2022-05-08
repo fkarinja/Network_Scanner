@@ -18,22 +18,26 @@ public class MainApp {
 
     }
     private static void menu(){
+        Boolean targets = false;
 
-        setCa
         System.out.println("\n============================================================");
-        System.out.println("Simple network scanner");
+        System.out.println("\t\tSimple network scanner");
         System.out.println("============================================================\n");
 
 
         if (IPAddressWorks.isLAddressistEampty()){
             System.out.println("[*] Current target list is EMPTY!");
         } else {
+            targets = true;
             IPAddressWorks.listTargets();
         }
         System.out.println("------------------------------------------------------------");
-        System.out.println("[*] To add enter targets menu, enter \"ping\" or \"P\"");
-        //System.out.println("[*] To add enter targets menu, enter \"ping\"");
-        System.out.println("[*] To quit enter \"quit\" or  \"Q\"");
+        System.out.println("[*] To enter targets menu, enter: \"ping\" or \"P\"");
+        //Ako u listi postoje zapisi, pokaži ovaj meni
+        if (targets == true){
+            System.out.println("[*] To scan current targets for default ports enter:  \"scan\" or \"S\"");
+        }
+        System.out.println("[*] To quit enter: \"quit\" or  \"Q\"");
 
         System.out.println();
         while (quit == false){
@@ -42,7 +46,7 @@ public class MainApp {
             if(input.equals("ping") || input.equals("p")){
                 getAddressInput();
             } else if(input.equals("quit") || input.equals("q")){
-                System.out.println("[*]");
+                //System.out.println("[*]");    //TEST
                 quit = true;
             }
         }
