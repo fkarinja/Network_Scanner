@@ -41,6 +41,7 @@ public class MainApp {
 
         System.out.println();
         while (quit == false){
+            System.out.print("Enter command: ");
             String input = sc.nextLine();
             input = input.trim().toLowerCase();
             if(input.equals("ping") || input.equals("p")){
@@ -48,6 +49,8 @@ public class MainApp {
             } else if(input.equals("quit") || input.equals("q")){
                 //System.out.println("[*]");    //TEST
                 quit = true;
+            } else {
+                System.out.println("Unknown input!");
             }
         }
     }
@@ -57,11 +60,12 @@ public class MainApp {
         System.out.println("IP address ie. => 192.168.1.1");
         System.out.println("IP address range ie. => 192.168.1.1-255");
         System.out.println("Please enter IP address or IP address range.");
-
+        System.out.print("Enter command: ");
         String address = sc.nextLine();
-
+        //!!!DODATI QUIT!!!
         IPAddressWorks.initialParser(address);
-        cleanScreen();
+
+        //cleanScreen();
         menu();
     }
 

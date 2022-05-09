@@ -81,7 +81,7 @@ public class IPAddressWorks {
 
 
     public static void listTargets(){
-        System.out.println("[*] Potential targets in the list:");
+        System.out.println("[*] Potential ACTIVE targets in the list:");
         for(InetAddress addr : inetAddressList){
             System.out.print("IP address: ");
             System.out.println(addr.toString());
