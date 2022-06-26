@@ -1,4 +1,4 @@
-package NetworkDevice;
+package Application.NetworkDevice;
 
 import java.net.InetAddress;
 import java.util.ArrayList;

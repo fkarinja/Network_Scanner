@@ -1,0 +1,5 @@
+[DONE] IP address parser
+[DONE] Ping single
+[DONE] Ping multiple through single
+[DONE] Port open (Možda je malo presporo, cca 100ms, ali trenutačni socket se ne može postaviti timeout, prije samo spajanja)
+[DONE] Učitavanje
