@@ -19,6 +19,7 @@ public class IPPing {
             if (address.isReachable(50)){
                 System.out.println("=> : " + address.getHostAddress() + " IS reachable!");
                 Device device = new Device(address);
+                device.setCanonicalName(address.getCanonicalHostName());
                 UserInputParse.foundDevices.add(device);
 
                 InitialiseCommonPortScan.cycleThroughCommonPorts(device);

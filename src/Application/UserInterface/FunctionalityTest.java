@@ -9,7 +9,11 @@ public class FunctionalityTest {
         /**
          * Samo za potrebe testiranja funkcionalnosti
          */
-        String testIPAddress = "10.100.1.254";
+        String testIPAddress = "8.8.8.8";
+
+        UserInputParse.initialParser(testIPAddress);
+        System.out.println(UserInputParse.foundDevices);
+
 //        InetAddress ipAddress;
 //
 //        try {
@@ -33,11 +37,6 @@ public class FunctionalityTest {
 //        System.out.println(PortList.commonPorts);
 
 //        PortList.readCommonPorts();
-
-
-        UserInputParse.initialParser(testIPAddress);
-        System.out.println(UserInputParse.foundDevices);
-
 
 
     }

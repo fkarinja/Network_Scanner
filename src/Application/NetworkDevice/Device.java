@@ -7,6 +7,7 @@ public class Device {
 
     private InetAddress ipAddress;
     private ArrayList<Integer> openPorts = new ArrayList<>();
+    private String hostName;
 
 
     public Device(InetAddress address){
@@ -25,11 +26,20 @@ public class Device {
         this.openPorts.add(openPort);
     }
 
+    public String getCanonicalName() {
+        return hostName;
+    }
+
+    public void setCanonicalName(String canonicalName) {
+        hostName = canonicalName;
+    }
+
     @Override
     public String toString() {
         return "Device{" +
                 "ipAddress=" + ipAddress +
-                ", openPorts=" + openPorts +
+                ", hostName='" + hostName +
+                ", openPorts=" + openPorts +'\'' +
                 '}';
     }
 }
