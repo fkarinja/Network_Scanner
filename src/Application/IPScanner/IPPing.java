@@ -1,31 +1,32 @@
 package Application.IPScanner;
 
-import Application.InputParser.IPAddressWorks;
+import Application.InputParser.UserInputParse;
+import Application.NetworkDevice.Device;
+import Application.PortWorks.InitialiseCommonPortScan;
 
 import java.io.IOException;
 import java.net.InetAddress;
-import java.net.NetworkInterface;
 import java.net.UnknownHostException;
 
 public class IPPing {
 
     //Samo pinganje
-    public static void singleIPAdressIsReacable(String stringAddress){
+    public static void singleIPAddressIsActive(String stringAddress){
 
         try {
-            // u ovom dijelu samo punim listu, nakon toga ide u klasu koja će otvoriti
+            // Create InetAddress, if it's available, create Object, add to list
             InetAddress address = InetAddress.getByName(stringAddress);
             if (address.isReachable(50)){
-                System.out.println("=> : " + address.getHostAddress() + " IS reacheable!");
-                System.out.println("Adding to the list of potential targets.");
+                System.out.println("=> : " + address.getHostAddress() + " IS reachable!");
+                Device device = new Device(address);
+                UserInputParse.foundDevices.add(device);
 
-                IPAddressWorks.inetAddressList.add(address);
+                InitialiseCommonPortScan.cycleThroughCommonPorts(device);
+
             } else {
                 System.out.println("=>  " + address.getHostAddress() + " no reply.");
             }
-
-
-            //default exceptions koje sam "hendlao"
+            //Default exceptions handled
         } catch (UnknownHostException e) {
             System.out.println("[!] Parsing the IP address returned an error. Please check your input!");
         } catch (IOException e) {

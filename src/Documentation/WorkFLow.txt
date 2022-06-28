@@ -1,5 +1,14 @@
 [DONE] IP address parser
 [DONE] Ping single
 [DONE] Ping multiple through single
-[DONE] Port open (Možda je malo presporo, cca 100ms, ali trenutačni socket se ne može postaviti timeout, prije samo spajanja)
-[DONE] Učitavanje
+[DONE] Port open (Možda je malo presporo, cca 1000ms, ali trenutačni socket se ne može postaviti timeout, prije samo spajanja)
+[DONE] Read CommonPorts from CSV File.
+[DONE] Get common port open for IP address
+[DONE] Every device will have InnetAddress, and OpenPortList
+[DONE] Create central Device structure, when new object created, add to structure => foundDevices ArrayList
+[DONE] Automate! for each  responsive IP address create new object, and send object to next method.
+[DONE] Automate! immediately send obj to port scanner and add new-found ports to object
+[TODO] Ovo je jako sporo. Radi, ali sporo. Možda da pokušam sa ServerSocket? Multithreading -> Pitati profesora?
+
+[TODO] Započeti UI Definiciju,
+[TODO] Povezati UI sa backendom

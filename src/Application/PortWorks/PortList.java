@@ -13,7 +13,7 @@ public class PortList {
 
 
     public static void readCommonPorts(){
-        File csv = new File("src/Application/PortWorks/CommonPorts.txt");
+        File csv = new File("src/Application/PortWorks/CommonPorts.csv");
         try {
             Scanner sc = new Scanner(csv);
             while (sc.hasNextLine()){
@@ -23,13 +23,11 @@ public class PortList {
             }
         } catch (FileNotFoundException e) {
             System.out.println("File containing common ports not found.");
-            System.out.println("Default location is: src/Application/PortWorks/CommonPorts.txt");
+            System.out.println("Default location is: src/Application/PortWorks/CommonPorts.csv");
             System.out.println("If not found, please replace!");
         }
 
     }
-
-
 
 
 }

@@ -1,20 +1,16 @@
 package Application.InputParser;
 
 import Application.IPScanner.IPPing;
+import Application.NetworkDevice.Device;
 
-import java.io.IOException;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.ArrayList;
 
 
-public class IPAddressWorks {
-    public static ArrayList<InetAddress> inetAddressList = new ArrayList<InetAddress>();
+public class UserInputParse {
 
-    /**
-     *
-     * @param address
-     */
+    public static ArrayList<Device> foundDevices = new ArrayList<>();
+
+
 
     public static void initialParser(String address){
         System.out.println("[*] Starting IP address enumeration ...");
@@ -24,7 +20,7 @@ public class IPAddressWorks {
         if(address.contains("-")){
             dashSeparatorIPAddressList(address);
         } else {
-            IPPing.singleIPAdressIsReacable(address);
+            IPPing.singleIPAddressIsActive(address);
         }
     }
 
@@ -45,19 +41,10 @@ public class IPAddressWorks {
 
         for(int i = start; i <= end; i++){
             String singleIP = base + i;
-            IPPing.singleIPAdressIsReacable(singleIP);
+            IPPing.singleIPAddressIsActive(singleIP);
         }
 
 
     }
-
-
-
-    public static boolean isLAddressListEmpty(){
-        return inetAddressList.isEmpty();
-    }
-
-
-
 
 }

@@ -1,11 +1,7 @@
 package Application.UserInterface;
 
-
-import Application.PortWorks.PortList;
-import Application.PortWorks.PortScanner;
-
-import java.net.InetAddress;
-import java.net.UnknownHostException;
+import Application.IPScanner.IPPing;
+import Application.InputParser.UserInputParse;
 
 public class FunctionalityTest {
 
@@ -13,17 +9,21 @@ public class FunctionalityTest {
         /**
          * Samo za potrebe testiranja funkcionalnosti
          */
-        String testIPAddress = "192.168.8.1";
-        InetAddress ipAddress;
+        String testIPAddress = "10.100.1.254";
+//        InetAddress ipAddress;
+//
+//        try {
+//            ipAddress = InetAddress.getByName(testIPAddress);
+//            PortScanner.cycleThroughCommonPorts(ipAddress);
+//
+//
+//        } catch (UnknownHostException e) {
+//            throw new RuntimeException(e);
+//        }
 
-        try {
-            ipAddress = InetAddress.getByName(testIPAddress);
-            PortScanner.cycleThroughCommonPorts(ipAddress);
-
-
-        } catch (UnknownHostException e) {
-            throw new RuntimeException(e);
-        }
+//        UserInputParse.initialParser(testIPAddress);
+//        System.out.println(UserInputParse.foundDevices);
+//
 
 
 //        IPAddressWorks.initialParser();
@@ -31,6 +31,12 @@ public class FunctionalityTest {
 
 //        PortList.readCommonPorts();
 //        System.out.println(PortList.commonPorts);
+
+//        PortList.readCommonPorts();
+
+
+        UserInputParse.initialParser(testIPAddress);
+        System.out.println(UserInputParse.foundDevices);
 
 
 

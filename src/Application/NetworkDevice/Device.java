@@ -4,27 +4,32 @@ import java.net.InetAddress;
 import java.util.ArrayList;
 
 public class Device {
-    private int id;
-    private String address = new String();
-    //Ako uspijem upogoniti service detector, onda ovo ide u TreeMap
-    private static ArrayList<String> openPorts = new ArrayList<String>();
-    private int cntID = 10;
+
+    private InetAddress ipAddress;
+    private ArrayList<Integer> openPorts = new ArrayList<>();
+
 
     public Device(InetAddress address){
-        this.address = address.toString().replace("/", "");
-        this.id = cntID;
-        cntID++;
+        this.ipAddress = address;
     }
 
-    public String getAddress() {
-        return address;
+    public InetAddress getIpAddress() {
+        return ipAddress;
     }
 
-    public ArrayList<String> getOpenPorts() {
+    public ArrayList<Integer> getOpenPorts() {
         return openPorts;
     }
 
-    public void addOpenPorts(String openPort) {
-        this.getOpenPorts().add(openPort);
+    public void addOpenPorts(int openPort) {
+        this.openPorts.add(openPort);
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "ipAddress=" + ipAddress +
+                ", openPorts=" + openPorts +
+                '}';
     }
 }
