@@ -14,8 +14,6 @@ public class UserInputParse {
 
     public static void initialParser(String address){
         System.out.println("[*] Starting IP address enumeration ...");
-        //System.out.println("[*] Replying only with IP live addresses. "); //iako je neuredno treba biti feedback da li je dostupno
-        //jer može proći puno vremena ako veći dio mreže nije dostupan.
 
         if(address.contains("-")){
             dashSeparatorIPAddressList(address);

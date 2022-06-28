@@ -8,7 +8,8 @@
 [DONE] Create central Device structure, when new object created, add to structure => foundDevices ArrayList
 [DONE] Automate! for each  responsive IP address create new object, and send object to next method.
 [DONE] Automate! immediately send obj to port scanner and add new-found ports to object
-[TODO] Ovo je jako sporo. Radi, ali sporo. Možda da pokušam sa ServerSocket? Multithreading -> Pitati profesora?
-
+[DONE] Ovo je jako sporo. Radi, ali sporo. Možda da pokušam sa ServerSocket? Multithreading -> Pitati profesora?
+[DONE] Riješeno postupenom definicojim Socket objekta
+[DONE] ekport - import objetaka iz i u listu Device-ova
 [TODO] Započeti UI Definiciju,
 [TODO] Povezati UI sa backendom
