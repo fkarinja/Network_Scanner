@@ -1,9 +1,10 @@
 package Application.NetworkDevice;
 
+import java.io.Serializable;
 import java.net.InetAddress;
 import java.util.ArrayList;
 
-public class Device {
+public class Device implements Serializable {
 
     private InetAddress ipAddress;
     private ArrayList<Integer> openPorts = new ArrayList<>();

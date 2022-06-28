@@ -2,6 +2,7 @@ package Application.UserInterface;
 
 import Application.IPScanner.IPPing;
 import Application.InputParser.UserInputParse;
+import Application.NetworkDevice.DeviceToFile;
 
 public class FunctionalityTest {
 
@@ -12,7 +13,14 @@ public class FunctionalityTest {
         String testIPAddress = "8.8.8.8";
 
         UserInputParse.initialParser(testIPAddress);
+        UserInputParse.initialParser("1.1.1.1");
         System.out.println(UserInputParse.foundDevices);
+
+        DeviceToFile.deviceToFile("src/Application/BinStorage/FoundDevices1.bin");
+        DeviceToFile.deviceToFile("src/Application/BinStorage/FoundDevices1.bin");
+
+        System.out.println(UserInputParse.foundDevices);
+
 
 //        InetAddress ipAddress;
 //
