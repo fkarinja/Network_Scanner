@@ -13,7 +13,6 @@ public class UserInputParse {
 
 
     public static void initialParser(String address){
-        System.out.println("[*] Starting IP address enumeration ...");
 
         if(address.contains("-")){
             dashSeparatorIPAddressList(address);

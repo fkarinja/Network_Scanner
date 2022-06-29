@@ -1,8 +1,5 @@
 package Application.TESTING;
 
-import Application.IPScanner.IPPing;
-import Application.InputParser.UserInputParse;
-import Application.NetworkDevice.DeviceToFile;
 import Application.UserInterface.MainWindow;
 
 import javax.swing.*;
@@ -26,13 +23,13 @@ public class FunctionalityTest {
 //        System.out.println(UserInputParse.foundDevices);
 
 
-        SwingUtilities.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new MainWindow();
-
-            }
-        });
+//        SwingUtilities.invokeLater(new Runnable() {
+//            @Override
+//            public void run() {
+//                new MainWindow();
+//
+//            }
+//        });
 
     }
 

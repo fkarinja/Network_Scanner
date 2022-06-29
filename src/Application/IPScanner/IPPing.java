@@ -1,6 +1,7 @@
 package Application.IPScanner;
 
 import Application.InputParser.UserInputParse;
+import Application.FileWorks.Messenger;
 import Application.NetworkDevice.Device;
 import Application.PortWorks.InitialiseCommonPortScan;
 
@@ -14,25 +15,43 @@ public class IPPing {
     public static void singleIPAddressIsActive(String stringAddress){
 
         try {
-            // Create InetAddress, if it's available, create Object, add to list
             InetAddress address = InetAddress.getByName(stringAddress);
-            if (address.isReachable(50)){
-                System.out.println("=> : " + address.getHostAddress() + " IS reachable!");
-                Device device = new Device(address);
-                device.setCanonicalName(address.getCanonicalHostName());
-                UserInputParse.foundDevices.add(device);
+            boolean exists = false;
 
-                InitialiseCommonPortScan.cycleThroughCommonPorts(device);
-
-            } else {
-                System.out.println("=>  " + address.getHostAddress() + " no reply.");
+            for (Device device : UserInputParse.foundDevices){
+                if(device.getIpAddress().toString().equals(address.toString())){
+                    exists = true;
+                }
             }
+
+            if(!exists){
+                if (address.isReachable(500)){
+                    Messenger.newMessage("[*] IP address : " + address.getHostAddress() + " IS reachable!");
+                    Device device = new Device(address);
+                    device.setCanonicalName(address.getCanonicalHostName());
+                    UserInputParse.foundDevices.add(device);
+
+                    InitialiseCommonPortScan.cycleThroughCommonPorts(device);
+                    exists = false;
+
+                } else {
+                    Messenger.newMessage("[!] IP address " + address.getHostAddress() + " no reply.");
+                }
+            } else if(exists) {
+                Messenger.newMessage("[!] IP address has already been scanned!");
+                exists = false;
+            }
+
+
+
+
+
             //Default exceptions handled
         } catch (UnknownHostException e) {
-            System.out.println("[!] Parsing the IP address returned an error. Please check your input!");
+            Messenger.newMessage("[!] Parsing the IP address returned an error. Please check your input!");
         } catch (IOException e) {
-            System.out.println("[!] Something went wrong trying to contact the IP address you provided.");
-            System.out.println("[!] Are you connected to any networks?");
+            Messenger.newMessage("[!] Something went wrong trying to contact the IP address you provided.");
+            Messenger.newMessage("[!] Are you connected to any networks?");
         }
     }
 }

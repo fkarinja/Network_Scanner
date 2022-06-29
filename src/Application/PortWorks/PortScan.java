@@ -21,7 +21,6 @@ public class PortScan {
             device.addOpenPorts(port);
             socket.close();
         } catch (IOException e) {
-//            System.out.println("Port " + port + " not open, on device " + device.getIpAddress()); //Testiranja radi
         }
 
     }

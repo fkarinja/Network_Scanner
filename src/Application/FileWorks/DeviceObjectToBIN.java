@@ -1,10 +1,11 @@
-package Application.NetworkDevice;
+package Application.FileWorks;
 
 import Application.InputParser.UserInputParse;
+import Application.NetworkDevice.Device;
 
 import java.io.*;
 
-public class DeviceToFile {
+public class DeviceObjectToBIN {
 
     public static void deviceToFile(String filePath){
         File file = new File(filePath);
@@ -17,18 +18,19 @@ public class DeviceToFile {
             if(!UserInputParse.foundDevices.isEmpty()){
                 for(Device device : UserInputParse.foundDevices){
                     oos.writeObject(device);
+                    Messenger.newMessage("[*] Devices saved successfully!");
                 }
             } else {
-                System.out.println("Target list is empty, nothing to write to file.");
+                Messenger.newMessage("[!] Target list is empty, nothing to write to file.");
             }
 
             oos.close();
             fos.close();
 
         } catch (FileNotFoundException e) {
-            e.printStackTrace(); //FNF
+            Messenger.newMessage("[!] File for saving not found!");
         } catch (IOException e) {
-            e.printStackTrace(); //READ RIGHTS
+            Messenger.newMessage("[!] Something went wrong while trying to write to file!");
         }
 
 
@@ -45,17 +47,19 @@ public class DeviceToFile {
                 Device device;
                 device = (Device) ois.readObject();
                 UserInputParse.foundDevices.add(device);
-
+                Messenger.newMessage("[*] Devices read successfully!");
             }
-//            ois.close();
-//            fis.close();
 
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();    //FNF
+
+
+        } catch (EOFException e){
+
+        }catch (FileNotFoundException e) {
+            Messenger.newMessage("[!] File for loading not found!");
         } catch (IOException e) {
-            e.printStackTrace();    //READ RIGHTS
+            Messenger.newMessage("[!] Something went wrong while trying to write to file!");
         } catch (ClassNotFoundException e) {
-            e.printStackTrace();
+            Messenger.newMessage("[!] Wrong object type, are you trying to read wrong file?");
         }
 
     }

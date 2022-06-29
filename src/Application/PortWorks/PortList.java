@@ -1,5 +1,7 @@
 package Application.PortWorks;
 
+import Application.FileWorks.Messenger;
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.Scanner;
@@ -22,9 +24,7 @@ public class PortList {
                 commonPorts.put(Integer.parseInt(port[1]), port[0]);
             }
         } catch (FileNotFoundException e) {
-            System.out.println("File containing common ports not found.");
-            System.out.println("Default location is: src/Application/PortWorks/CommonPorts.csv");
-            System.out.println("If not found, please replace!");
+            Messenger.newMessage("File containing common ports not found.");
         }
 
     }

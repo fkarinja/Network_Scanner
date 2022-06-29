@@ -37,10 +37,6 @@ public class Device implements Serializable {
 
     @Override
     public String toString() {
-        return "Device{" +
-                "ipAddress=" + ipAddress +
-                ", hostName='" + hostName +
-                ", openPorts=" + openPorts +'\'' +
-                '}';
+        return "Device: " + ipAddress +"\n\t> Device hostname: " + hostName + ", \n\t> Open Ports: "  + openPorts ;
     }
 }

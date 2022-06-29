@@ -5,11 +5,6 @@ import java.util.Map;
 
 public class InitialiseCommonPortScan {
 
-    /**
-     * Ostavio sam ovo u zasebnoj klasi da mogu negdje u budućnosti klasu PortScan extendati runnable
-     * @param device
-     */
-
     public static void cycleThroughCommonPorts(Device device){
         PortList.readCommonPorts();
 
