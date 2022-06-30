@@ -7,6 +7,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public class DeviceExportToTXT {
+    /**
+     * Method exports UserInputParse.foundDevices devices to a TXT file
+     * @param filePath
+     */
 
     public static void exportResultsToTxt(String filePath){
         try {

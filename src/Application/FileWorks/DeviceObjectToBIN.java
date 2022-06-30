@@ -5,7 +5,17 @@ import Application.NetworkDevice.Device;
 
 import java.io.*;
 
+/**
+ * Class handling Saving objects to a BIN file, and loading
+ */
+
 public class DeviceObjectToBIN {
+
+    /**
+     * Cycles through and writes objects in UserInputParse.foundDevices to file
+     * @param filePath
+     */
+
 
     public static void deviceToFile(String filePath){
         File file = new File(filePath);
@@ -35,6 +45,11 @@ public class DeviceObjectToBIN {
 
 
     }
+
+    /**
+     * Loads Objects found in BIN file and loads them into UserInputParse.foundDevices
+     * @param filePath
+     */
 
     public static void deviceFromFile(String filePath){
             File file = new File(filePath);

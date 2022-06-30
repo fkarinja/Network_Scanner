@@ -11,7 +11,9 @@ public class PortList {
 
     public static TreeMap<Integer, String> commonPorts = new TreeMap<Integer, String>();
 
-
+    /**
+     * Reads ports from a csv document, ad fills them into TreeMap to be accessed by other classes
+     */
 
 
     public static void readCommonPorts(){

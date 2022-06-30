@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+
 public class ResultsPanel extends JPanel {
 
     private JScrollPane liveIP;
@@ -23,6 +24,10 @@ public class ResultsPanel extends JPanel {
     private JButton loadResults;
     private JButton exportResults;
     private JTextArea message;
+
+    /**
+     * Panel object definition
+     */
 
     public ResultsPanel(){
 
@@ -35,17 +40,25 @@ public class ResultsPanel extends JPanel {
 
         //Set everything here
         setBorders();
-        initialisePanels();
+        initialiseComponents();
         setComponentLayout();
         activateButtons();
     }
+
+    /**
+     * Border creation
+     */
 
     private void setBorders(){
         Border border = BorderFactory.createEtchedBorder();
         setBorder(border);
     }
 
-    private void initialisePanels(){
+    /**
+     * Component Initialisation
+     */
+
+    private void initialiseComponents(){
         liveIPLbl = new JLabel("Active IP addresses:");
         liveIPTextArea = new JTextArea();
         liveIPTextArea.setEditable(false);
@@ -64,6 +77,10 @@ public class ResultsPanel extends JPanel {
         message.setFocusable(false);
 
     }
+
+    /**
+     * Component layout and adding to Panel object
+     */
 
     private void setComponentLayout(){
         setLayout(null);
@@ -89,8 +106,18 @@ public class ResultsPanel extends JPanel {
         add(message);
     }
 
+    /**
+     * Button functionality and "backend interaction"
+     */
+
     private void activateButtons(){
+
+        /**
+         * Initialises saving UserInputParse.foundDevices objects to file
+         */
         saveResults.addActionListener(new ActionListener() {
+
+
             @Override
             public void actionPerformed(ActionEvent e) {
                 //fileChooser
@@ -108,6 +135,10 @@ public class ResultsPanel extends JPanel {
 
             }
         });
+
+        /**
+         * Initialises loading Device object from BIN file to UserInputParse.foundDevices
+         */
 
         loadResults.addActionListener(new ActionListener() {
             @Override
@@ -137,6 +168,10 @@ public class ResultsPanel extends JPanel {
             }
         });
 
+        /**
+         * Initialises exporting device objects from UserInputParse.foundDevices to a TXT file, via device.toString
+         */
+
         exportResults.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -161,26 +196,54 @@ public class ResultsPanel extends JPanel {
 
     }
 
-    public void setLiveIPTextArea(String device){
-        liveIPTextArea.append(device);
+    /**
+     * Adds new device String output to textArea
+     * @param deviceString
+     */
+
+    public void appendLiveIPTextArea(String deviceString){
+        liveIPTextArea.append(deviceString);
         liveIPTextArea.append("\n");
     }
+
+    /**
+     * Resets textArea
+     */
 
     public void resetLiveIPTextArea(){
         liveIPTextArea.setText("");
     }
 
+    /**
+     * Changes the message in Message textBox
+     * @param message
+     */
+
     public void setMessage(String message) {
         this.message.setText("Message: " + message);
     }
+
+    /**
+     * Changes button availability
+     */
 
     public void enableSaveResults(){
         this.saveResults.setEnabled(true);
     }
 
+
+    /**
+     * Changes button availability
+     */
+
     public void enableExportResults(){
         this.exportResults.setEnabled(true);
     }
+
+
+    /**
+     * Loads devices from UserInputParse.foundDevices to textArea
+     */
 
     private void loadResults(){
         liveIPTextArea.setText("");

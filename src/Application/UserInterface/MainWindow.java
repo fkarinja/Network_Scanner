@@ -13,6 +13,10 @@ public class MainWindow extends JFrame {
     private ScanPanel scanPanel;
     private ResultsPanel resultsPanel;
 
+    /**
+     * MainWindow   Object
+     */
+
     public MainWindow(){
         super("Common ports scanner");
         setResizable(false);
@@ -29,11 +33,19 @@ public class MainWindow extends JFrame {
         activateMainWindow();
     }
 
+    /**
+     * JPanel initialization
+     */
+
     private void initialiseComponents(){
         //Initialise frame objects here
         scanPanel = new ScanPanel();
         resultsPanel = new ResultsPanel();
     }
+
+    /**
+     * Layout
+     */
 
     private void panelLayout(){
         setLayout(new BorderLayout());
@@ -41,6 +53,10 @@ public class MainWindow extends JFrame {
         add(scanPanel, BorderLayout.NORTH);
         add(resultsPanel);
     }
+
+    /**
+     * Main window functionality an interaction with "backend"
+     */
 
     void activateMainWindow(){
         //Listener methodology and connect to "Backend"
@@ -53,7 +69,7 @@ public class MainWindow extends JFrame {
                 UserInputParse.initialParser(searchIP);
                 resultsPanel.resetLiveIPTextArea();
                 for(Device device : UserInputParse.foundDevices){
-                    resultsPanel.setLiveIPTextArea(device.toString());
+                    resultsPanel.appendLiveIPTextArea(device.toString());
                 }
 
                 Scanner message = null;

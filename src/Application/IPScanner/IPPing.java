@@ -11,7 +11,11 @@ import java.net.UnknownHostException;
 
 public class IPPing {
 
-    //Samo pinganje
+    /**
+     * Based on input string, this method tries to create InnetAdress and checks if it is available
+     * @param stringAddress String containing supposed address
+     */
+
     public static void singleIPAddressIsActive(String stringAddress){
 
         try {

@@ -10,6 +10,12 @@ public class Device implements Serializable {
     private ArrayList<Integer> openPorts = new ArrayList<>();
     private String hostName;
 
+    /**
+     * Device object Constructor requires InetAddress
+     * Customised toString
+     * @param address
+     */
+
 
     public Device(InetAddress address){
         this.ipAddress = address;

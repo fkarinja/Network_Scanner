@@ -2,24 +2,36 @@ package Application.InputParser;
 
 import Application.IPScanner.IPPing;
 import Application.NetworkDevice.Device;
-
 import java.util.ArrayList;
+
+/**
+ * Class which handles user input, "parses" it, and forwrads it to IPPing class
+ */
 
 
 public class UserInputParse {
 
     public static ArrayList<Device> foundDevices = new ArrayList<>();
 
+    /**
+     * Handles the "parsing" part
+     * @param userInput
+     */
 
+    public static void initialParser(String userInput){
 
-    public static void initialParser(String address){
-
-        if(address.contains("-")){
-            dashSeparatorIPAddressList(address);
+        if(userInput.contains("-")){
+            dashSeparatorIPAddressList(userInput);
         } else {
-            IPPing.singleIPAddressIsActive(address);
+            IPPing.singleIPAddressIsActive(userInput);
         }
     }
+
+    /**
+     * If initial parser concludes user input has a range of IP addresses it is forwarded here to separate and
+     * forward single ip address one by one to IPPing
+     * @param stringAddress IP range String
+     */
 
 
     private static void dashSeparatorIPAddressList(String stringAddress){

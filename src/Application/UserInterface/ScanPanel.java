@@ -1,13 +1,10 @@
 package Application.UserInterface;
 
-import Application.InputParser.UserInputParse;
-
 import javax.swing.*;
 import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.LineNumberReader;
 
 public class ScanPanel extends JPanel {
 
@@ -16,6 +13,10 @@ public class ScanPanel extends JPanel {
     private JLabel guideLbl2;
     private JButton scanButton;
     private ScanPanelListener scanPanelListener;
+
+    /**
+     * Panel object definition
+     */
 
     public ScanPanel(){
 
@@ -27,17 +28,25 @@ public class ScanPanel extends JPanel {
 
         //Set everything here
         setBorders();
-        initialisePanels();
+        initialiseComponents();
         setComponentLayout();
         activateSearchButton();
     }
+
+    /**
+     * Setting borders
+     */
 
     private void setBorders(){
         Border border = BorderFactory.createEtchedBorder();
         setBorder(border);
     }
 
-    private void initialisePanels(){
+    /**
+     * Component initialisation
+     */
+
+    private void initialiseComponents(){
         ipAddressTxt = new JTextField(30);
         guideLbl = new JLabel("Please enter FQDN, IP address or IP range");
         guideLbl2 = new JLabel("in format: 192.168.1.1-255");
@@ -46,6 +55,10 @@ public class ScanPanel extends JPanel {
 
 
     }
+
+    /**
+     * Component layout and adding to hte panel object
+     */
 
     private void setComponentLayout(){
         setLayout(null);
@@ -67,6 +80,10 @@ public class ScanPanel extends JPanel {
 
     }
 
+    /**
+     * On scanButton clicked, creates ScanPanel Object through which we send data back to the MainWindow object
+     */
+
     private void activateSearchButton(){
         scanButton.addActionListener(new ActionListener() {
             @Override
@@ -84,6 +101,8 @@ public class ScanPanel extends JPanel {
             }
         });
     }
+
+
 
     public void setScanPanelListener(ScanPanelListener scanPanelListener){this.scanPanelListener = scanPanelListener;}
 

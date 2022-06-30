@@ -1,1 +1,1 @@
-[*] Devices saved successfully!
+[!] User canceled operation!

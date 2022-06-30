@@ -9,6 +9,12 @@ import java.net.SocketAddress;
 
 public class PortScan {
 
+    /**
+     * Tries to establish contact with device on a specific port
+     * @param port      Port to establish connection on
+     * @param device    Device to establish connection with
+     */
+
     public static void portScan(int port, Device device) {
 
         Socket socket = new Socket();
