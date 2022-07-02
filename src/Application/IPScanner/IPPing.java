@@ -4,6 +4,7 @@ import Application.InputParser.UserInputParse;
 import Application.FileWorks.Messenger;
 import Application.NetworkDevice.Device;
 import Application.PortWorks.InitialiseCommonPortScan;
+import Application.TraceRoute.TraceRoute;
 
 import java.io.IOException;
 import java.net.InetAddress;
@@ -36,6 +37,7 @@ public class IPPing {
                     UserInputParse.foundDevices.add(device);
 
                     InitialiseCommonPortScan.cycleThroughCommonPorts(device);
+                    TraceRoute.traceRoute(device);
                     exists = false;
 
                 } else {

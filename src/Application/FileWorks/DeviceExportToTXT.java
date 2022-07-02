@@ -13,10 +13,12 @@ public class DeviceExportToTXT {
      */
 
     public static void exportResultsToTxt(String filePath){
+
         try {
             FileWriter fileWriter = new FileWriter(filePath);
-            for(Device device: UserInputParse.foundDevices){
+            for(Device device : UserInputParse.foundDevices){
                 fileWriter.append(device.toString());
+                fileWriter.append("\n");
                 Messenger.newMessage("[*] Devices export to TXT successful.");
             }
             fileWriter.close();

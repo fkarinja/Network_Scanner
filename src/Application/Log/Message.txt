@@ -1,1 +1,1 @@
-[!] User canceled operation!
+[*] Devices export to TXT successful.

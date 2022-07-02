@@ -1,8 +1,11 @@
 package Application.TESTING;
 
+import Application.TraceRoute.TraceRoute;
 import Application.UserInterface.MainWindow;
 
 import javax.swing.*;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
 
 public class FunctionalityTest {
 
@@ -30,6 +33,14 @@ public class FunctionalityTest {
 //
 //            }
 //        });
+
+        InetAddress asd = null;
+        try {
+            asd = InetAddress.getByName("google.com");
+        } catch (UnknownHostException e) {
+            e.printStackTrace();
+        }
+//        TraceRoute.traceRoute(asd);
 
     }
 

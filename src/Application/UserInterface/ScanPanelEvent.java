@@ -1,6 +1,5 @@
 package Application.UserInterface;
 
-import java.util.EventListener;
 import java.util.EventObject;
 
 public class ScanPanelEvent extends EventObject {

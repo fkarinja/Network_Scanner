@@ -180,9 +180,9 @@ public class ResultsPanel extends JPanel {
                 txtExport.addChoosableFileFilter(new FileNameExtensionFilter("TXT file", "txt"));
                 txtExport.removeChoosableFileFilter(txtExport.getAcceptAllFileFilter());
 
-                int bl = txtExport.showSaveDialog(null);
+                int ex = txtExport.showSaveDialog(null);
 
-                if(bl == JFileChooser.APPROVE_OPTION){
+                if(ex == JFileChooser.APPROVE_OPTION){
                     String filePath = txtExport.getSelectedFile().getAbsolutePath() + ".txt";
                     DeviceExportToTXT.exportResultsToTxt(filePath);
                 } else {

@@ -9,6 +9,7 @@ public class Device implements Serializable {
     private InetAddress ipAddress;
     private ArrayList<Integer> openPorts = new ArrayList<>();
     private String hostName;
+    private String traceRoute;
 
     /**
      * Device object Constructor requires InetAddress
@@ -19,6 +20,7 @@ public class Device implements Serializable {
 
     public Device(InetAddress address){
         this.ipAddress = address;
+        this.traceRoute = "";
     }
 
     public InetAddress getIpAddress() {
@@ -41,8 +43,16 @@ public class Device implements Serializable {
         hostName = canonicalName;
     }
 
+    public String getTraceRoute() {
+        return traceRoute;
+    }
+
+    public void setTraceRoute(String traceRoute) {
+        this.traceRoute = traceRoute;
+    }
+
     @Override
     public String toString() {
-        return "Device: " + ipAddress +"\n\t> Device hostname: " + hostName + ", \n\t> Open Ports: "  + openPorts ;
+        return "Device: " + ipAddress +"\n\t> Device hostname: " + hostName + ", \n\t> Open Ports: "  + openPorts  + "\n\n +"  + traceRoute;
     }
 }
